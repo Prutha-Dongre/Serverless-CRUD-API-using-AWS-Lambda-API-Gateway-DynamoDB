@@ -55,6 +55,7 @@ No servers are managed manually — everything runs on AWS.
 | PUT | /users/{id} | Update user |
 | DELETE | /users/{id} | Delete user |
 
+
 ---
 
 # ➤ Step-by-Step Setup (Beginner Friendly)
@@ -315,12 +316,24 @@ Replace `{id}` with actual `user_id`
 ### ➤ 6. Check entries in DynamoDB
 ![entries in DynamoDB](./pictures/table-entries.png)
 
+---
 
 ## ➤ Learning Outcome
 - Learned AWS serverless architecture
 - Built REST API from scratch
 - Connected multiple AWS services
 - Tested APIs using Postman
+
+---
+
+## ➤ Troubleshooting
+
+| Error | Cause | Fix |
+|-------|-------|-----|
+| `Missing Authentication Token` | Hitting base URL `/dev` with no path | Use `/dev/users` |
+| `JSON object must be str, not NoneType` | POST sent with no body | Use `event.get('body') or '{}'` |
+| `AccessDeniedException` | IAM role missing DynamoDB policy | Attach `AmazonDynamoDBFullAccess` to role |
+| `ResourceNotFoundException` | Table name mismatch | Ensure table is named exactly `Users` |
 
 ---
 

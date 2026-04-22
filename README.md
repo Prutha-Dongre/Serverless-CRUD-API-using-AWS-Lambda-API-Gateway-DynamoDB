@@ -1,5 +1,9 @@
 # Serverless CRUD API using AWS Lambda, API Gateway, DynamoDB
 
+![AWS](https://img.shields.io/badge/AWS-Lambda-orange?logo=amazon-aws)
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![Status](https://img.shields.io/badge/Status-Live-brightgreen)
+
 
 ## ➤ Project Overview
 This project is a **simple REST API** built using AWS serverless services.  

@@ -1,7 +1,7 @@
 # Serverless CRUD API using AWS Lambda, API Gateway, DynamoDB
 
 
-## 📌 Project Overview
+## ➤ Project Overview
 This project is a **simple REST API** built using AWS serverless services.  
 It allows you to **Create, Read, Update, and Delete (CRUD)** user data.
 
@@ -9,7 +9,7 @@ No servers are managed manually — everything runs on AWS.
 
 ---
 
-## How It Works (Simple Explanation)
+## ➤ How It Works
 
 1. User sends request (Postman)
 2. API Gateway receives request
@@ -19,13 +19,13 @@ No servers are managed manually — everything runs on AWS.
 
 ---
 
-## Architecture
+## ➤ Architecture Diagram
 
-Client → API Gateway → Lambda → DynamoDB
+![Architecture Diagram](./pictures/architecture.png)
 
 ---
 
-## Technologies Used
+## ➤ Technologies Used
 
 - AWS Lambda (Python)
 - API Gateway
@@ -35,7 +35,7 @@ Client → API Gateway → Lambda → DynamoDB
 
 ---
 
-## Features
+## ➤ Features
 
 - ➕ Create user  
 - 📖 Get all users  
@@ -45,7 +45,7 @@ Client → API Gateway → Lambda → DynamoDB
 
 ---
 
-## API Endpoints
+## ➤ API Endpoints
 
 | Method | Endpoint | Description |
 |--------|---------|------------|
@@ -57,7 +57,7 @@ Client → API Gateway → Lambda → DynamoDB
 
 ---
 
-# Step-by-Step Setup (Beginner Friendly)
+# ➤ Step-by-Step Setup (Beginner Friendly)
 
 ## 1️⃣ Create DynamoDB Table
 
@@ -183,14 +183,15 @@ def response(status, body):
 
 - Go to AWS Console → API Gateway  
 - Click **Create API** → Select **REST API**  
-- Click **Build**  
+- Click **Build**
+![API](./pictures/API.png)
 
-### ➤ Create Resource
+#### ➤ Create Resource
 - Click **Create Resource**
 - Resource name: `users`
 - Resource path: `/users`
 
-### ➤ Add Methods to `/users`
+#### ➤ Add Methods to `/users`
 - Add **POST** method  
 - Add **GET** method  
 
@@ -208,10 +209,12 @@ This will create:
 ```
 
 
-### ➤ Add Methods to `/users/{id}`
+#### ➤ Add Methods to `/users/{id}`
 - Add **GET** method  
 - Add **PUT** method  
 - Add **DELETE** method  
+
+![API-GETandPOST](./pictures/API-GETandPOST.png)
 
 ---
 
@@ -224,6 +227,7 @@ For each method:
 - Enable **Lambda Proxy Integration**
 - Click **Save**
 - Click **Allow** when prompted
+![lambda-integration](./pictures/lambda-integration.png)
 
 ---
 
@@ -233,6 +237,7 @@ For each method:
 - Create new stage:
   - Stage name: `dev`
 - Click **Deploy**
+![deploy-api](./pictures/deploy-api.png)
 
 ### ➤ API URL Format:
 ```
@@ -242,7 +247,7 @@ https://<api-id>.execute-api.<region>.amazonaws.com/dev
 
 ---
 
-## 🧪 Testing Using Postman
+## ➤ Testing Using Postman
 
 ### ➤ 1. Create User (POST)
 
@@ -258,6 +263,7 @@ https://<api-id>.execute-api.<region>.amazonaws.com/dev
   "email": "prutha@gmail.com"
 }
 ```
+![test-1](./pictures/test-1.png)
 
 ### ➤ 2. Get All Users (GET)
 
@@ -266,7 +272,7 @@ https://<api-id>.execute-api.<region>.amazonaws.com/dev
 ```
 /dev/users
 ```
-
+![test-2](./pictures/test-2.png)
 
 ---
 
@@ -296,6 +302,7 @@ Replace `{id}` with actual `user_id`
   "email": "updated@gmail.com"
 }
 ```
+![test-3](./pictures/test-3.png)
 
 ### ➤ 5. Delete User (DELETE)
 
@@ -303,9 +310,30 @@ Replace `{id}` with actual `user_id`
 ```
 /dev/users/{id}
 ```
+![test-4](./pictures/test-4.png)
 
-## Learning Outcome
+### ➤ 6. Check entries in DynamoDB
+![entries in DynamoDB](./pictures/table-entries.png)
+
+
+## ➤ Learning Outcome
 - Learned AWS serverless architecture
 - Built REST API from scratch
 - Connected multiple AWS services
 - Tested APIs using Postman
+
+---
+
+## ➤ Conclusion
+
+This project demonstrates how to build a complete **serverless REST API** using AWS services without managing any servers.  
+
+By integrating **API Gateway, Lambda, and DynamoDB**, we successfully implemented full **CRUD operations** in a scalable and cost-efficient way.
+
+Through this project, I gained hands-on experience in:
+- Designing REST APIs  
+- Working with AWS serverless architecture  
+- Handling real-time data operations  
+- Testing APIs using Postman  
+
+---
